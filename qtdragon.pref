@@ -1,7 +1,8 @@
 [DIALOG_GEOMETRY]
-AboutDialog-geometry = half
+AboutDialog-geometry = 590 497 300 150
 LncMessage-geometry = 994 785 286 120
 ToolChangeDialog-geometry = default
+CalculatorDialog-geometry = 590 497 472 354
 
 [DIALOG_OPTIONS]
 EntryDialog_play_sound = True
@@ -19,10 +20,10 @@ RunFromLineDialog_play_sound = True
 RunFromLineDialog_sound_type = READY
 
 [BOOK_KEEPING]
-last_loaded_directory = /tmp/emcflt-b4e9frt2.d
-last_loaded_file = /tmp/emcflt-b4e9frt2.d/torus.png
+last_loaded_directory = /tmp/emcflt-8mm6fk5t.d
+last_loaded_file = /tmp/emcflt-8mm6fk5t.d/star.png
 style_QSS_Path = /usr/share/qtvcp/screens/qtdragon_hd/brushed_metal_color.qss
-RecentPath_0 = /home/cnc/linuxcnc/nc_files/examples/torus.png
+RecentPath_0 = /home/cnc/linuxcnc/nc_files/examples/gcmc_lib/star.png
 
 [ORIGINOFFSET_SYSTEM_NAMES]
 __dialogOffsetViewWidget-G54 = User System 1
@@ -50,7 +51,7 @@ desktop_notify = True
 notify_max_msgs = 10
 shutdown_check = True
 sound_player_on = False
-MainWindow-geometry = 0 60 1280 933
+MainWindow-geometry = 6 60 1280 933
 
 [MCH_MSG_OPTIONS]
 mchnMsg_play_sound = True
