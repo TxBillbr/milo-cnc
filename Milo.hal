@@ -127,22 +127,11 @@ net ok-in iocontrol.0.user-enable-out estop-latch.0.ok-in
 net resetestop iocontrol.0.user-request-enable estop-latch.0.reset
 
 # ---setup home / limit switch signals---
-net min-home-x     <=  [HMOT](CARD0).gpio.013.in
-net min-home-y     <=  [HMOT](CARD0).gpio.014.in
-net max-home-z     <=  [HMOT](CARD0).gpio.015.in
 
-net x-home-sw     =>  joint.0.home-sw-in
-net x-neg-limit   =>  joint.0.neg-lim-sw-in
-net x-pos-limit   =>  joint.0.pos-lim-sw-in
+net x-home-sw     <=  [HMOT](CARD0).gpio.013.in =>  joint.0.home-sw-in joint.0.neg-lim-sw-in
+net y-home-sw     <=  [HMOT](CARD0).gpio.014.in =>  joint.1.home-sw-in joint.1.pos-lim-sw-in
+net z-home-sw     <=  [HMOT](CARD0).gpio.015.in =>  joint.2.home-sw-in joint.2.pos-lim-sw-in
 
-net y-home-sw     =>  joint.1.home-sw-in
-net y-neg-limit   =>  joint.1.neg-lim-sw-in
-net y-pos-limit   =>  joint.1.pos-lim-sw-in
-# net min-home-y y-home-sw
-
-net z-home-sw     =>  joint.2.home-sw-in
-net z-pos-limit   =>  joint.2.pos-lim-sw-in
-net z-neg-limit   =>  joint.2.neg-lim-sw-in
 
 #*******************
 #  AXIS X JOINT 0
