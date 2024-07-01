@@ -1,26 +1,49 @@
 # Halshow settings
 # This file is generated automatically.
-wm geometry . 1079x804+177+44
+wm geometry . 1920x962+0+31
 placeFrames 0.29988399071925753
 set ::ratio 0.29988399071925753
 set ::old_w_leftf 517
 set ::watchlist {
-    pin+joint.0.neg-lim-sw-in
-    pin+joint.0.pos-lim-sw-in
-    pin+joint.0.home-sw-in
-    pin+joint.1.neg-lim-sw-in
-    pin+joint.1.pos-lim-sw-in
-    pin+joint.1.home-sw-in
-    pin+joint.2.neg-lim-sw-in
-    pin+joint.2.pos-lim-sw-in
-    pin+joint.2.home-sw-in
+    pin+hm2_5i25.0.gpio.000.in
+    pin+hm2_5i25.0.gpio.001.in
+    pin+hm2_5i25.0.gpio.002.in
+    pin+hm2_5i25.0.gpio.003.in_not
+    pin+hm2_5i25.0.gpio.004.in
+    pin+hm2_5i25.0.gpio.006.in
+    pin+hm2_5i25.0.gpio.007.in
+    pin+hm2_5i25.0.gpio.008.in
+    pin+hm2_5i25.0.gpio.009.in
+    pin+hm2_5i25.0.gpio.010.in
+    pin+hm2_5i25.0.gpio.011.in
+    pin+hm2_5i25.0.gpio.012.in
+    pin+hm2_5i25.0.gpio.013.in
+    pin+hm2_5i25.0.gpio.014.in
+    pin+hm2_5i25.0.gpio.015.in_not
+    pin+hm2_5i25.0.gpio.016.in
+    pin+hm2_5i25.0.gpio.017.out
+    pin+hm2_5i25.0.gpio.018.out
+    pin+hm2_5i25.0.gpio.019.out
+    pin+hm2_5i25.0.gpio.020.in
+    pin+hm2_5i25.0.gpio.021.out
+    pin+hm2_5i25.0.gpio.022.out
+    pin+hm2_5i25.0.gpio.023.out
+    pin+hm2_5i25.0.gpio.025.out
+    pin+hm2_5i25.0.gpio.026.out
+    pin+hm2_5i25.0.gpio.027.out
+    pin+hm2_5i25.0.gpio.028.out
+    pin+hm2_5i25.0.gpio.029.out
+    pin+hm2_5i25.0.gpio.030.in
+    pin+hm2_5i25.0.gpio.031.in
+    pin+hm2_5i25.0.gpio.032.in
+    pin+hm2_5i25.0.gpio.033.in
+    sig+probe
     sig+coolant-spindle
     sig+x-home-sw
-    sig+x-is-homed
-    sig+z-home-sw
     sig+y-home-sw
+    sig+z-home-sw
 }
-set ::workmode showhal
+set ::workmode watchhal
 set ::watchInterval 100
 set ::col1_width 100
 set ::ffmts 

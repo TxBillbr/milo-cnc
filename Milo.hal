@@ -4,7 +4,7 @@
 # overwritten when you run PNCconf again
 
 loadrt [KINS]KINEMATICS
-loadrt [EMCMOT]EMCMOT servo_period_nsec=[EMCMOT]SERVO_PERIOD num_joints=[KINS]JOINTS
+loadrt [EMCMOT]EMCMOT servo_period_nsec=[EMCMOT]SERVO_PERIOD num_joints=[KINS]JOINTS num_dio=30 num_aio=30
 loadrt hostmot2
 loadrt hm2_pci config="num_encoders=0 num_pwmgens=1 num_stepgens=6" 
 setp    [HMOT](CARD0).pwmgen.pwm_frequency 20000
@@ -86,8 +86,13 @@ net x-enable  => [HMOT](CARD0).stepgen.04.enable [HMOT](CARD0).stepgen.05.enable
 #   15      020     tool-setter
 
 # --- Spindle cooling relay(1) ---
+# turn on relay for pump and port for fan when
+# spindle is on
+
 setp [HMOT](CARD0).gpio.017.is_output true
+setp [HMOT](CARD0).gpio.027.is_output true
 net coolant-spindle =>     [HMOT](CARD0).gpio.017.out <= halui.spindle.0.is-on
+net coolant-spindle =>     [HMOT](CARD0).gpio.027.out 
 
 # --- Mist Cooling relay (2) ---
 setp [HMOT](CARD0).gpio.018.is_output true  
@@ -353,12 +358,9 @@ net MDI-mode              halui.mode.is-mdi
 net coolant-mist      <=  iocontrol.0.coolant-mist
 net coolant-flood     <=  iocontrol.0.coolant-flood
 
-#  ---probe signal---
 # --- PROBE-IN ---
-# net probe-in     <=  [HMOT](CARD0).gpio.000.in
-
 net probe  <= [HMOT](CARD0).gpio.016.in => debounce.0.4.in
-#net probe  motion.probe-input probe-in
+# net probe  => motion.probe-input probe-in
 
 #  ---motion control signals---
 
@@ -373,10 +375,10 @@ net tool-number            <= iocontrol.0.tool-prep-number
 
 #  ---Use external manual tool change dialog---
 
-loadusr -W hal_manualtoolchange
-net tool-change-request    =>  hal_manualtoolchange.change
-net tool-change-confirmed  <=  hal_manualtoolchange.changed
-net tool-number            =>  hal_manualtoolchange.number
+#loadusr -W hal_manualtoolchange
+#net tool-change-request    =>  hal_manualtoolchange.change
+#net tool-change-confirmed  <=  hal_manualtoolchange.changed
+#net tool-number            =>  hal_manualtoolchange.number
 
 #  ---ignore tool prepare requests---
 net tool-prepare-loopback   iocontrol.0.tool-prepare      =>  iocontrol.0.tool-prepared
