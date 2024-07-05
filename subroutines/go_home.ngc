@@ -1,0 +1,9 @@
+(go_home.ngc)
+
+O <go_home> sub 
+G0 Z0.500   
+G0 X0 Y0 
+O <go_home> endsub
+
+M2
+
