@@ -3,6 +3,7 @@ AboutDialog-geometry = 590 497 300 150
 LncMessage-geometry = 994 785 280 118
 ToolChangeDialog-geometry = default
 CalculatorDialog-geometry = 590 497 472 354
+basicProbeHelpDialog-geometry = 660 240 600 600
 
 [DIALOG_OPTIONS]
 EntryDialog_play_sound = True
@@ -22,7 +23,7 @@ RunFromLineDialog_sound_type = READY
 [BOOK_KEEPING]
 last_loaded_directory = /tmp/emcflt-8mm6fk5t.d
 last_loaded_file = /tmp/emcflt-8mm6fk5t.d/star.png
-style_QSS_Path = /usr/share/qtvcp/screens/qtdragon/qtdragon_dark_grey.qss
+style_QSS_Path = /usr/share/qtvcp/screens/qtdragon_hd/qtdragon_hd.qss
 RecentPath_0 = /home/cnc/linuxcnc/nc_files/examples/gcmc_lib/star.png
 
 [ORIGINOFFSET_SYSTEM_NAMES]
@@ -51,7 +52,7 @@ desktop_notify = True
 notify_max_msgs = 10
 shutdown_check = True
 sound_player_on = False
-MainWindow-geometry = 84 60 1700 1015
+MainWindow-geometry = 0 31 1920 1080
 
 [MCH_MSG_OPTIONS]
 mchnMsg_play_sound = True
@@ -116,4 +117,26 @@ Use camera = False
 Use alpha display mode = False
 Inhibit display mouse selection = True
 Use tool touchplate = True
+
+[SPINDLE_EXTRAS]
+Front_Belt_enabled = 1
+Back_Belt_enabled = 6
+
+[PROBE OPTIONS]
+Probe tool = 0
+Probe diameter = 4
+Probe rapid = 10
+Probe feed = 10
+Probe search = 10
+Probe max travel = 10
+Probe max z = 2
+Probe extra depth = 0
+Probe step off = 10
+Probe xy clearance = 10
+Probe z clearance = 10
+Probe edge width = 10
+Calibration offset = 0
+Cal x width = 0
+Cal y width = 0
+Cal diameter = 0
 

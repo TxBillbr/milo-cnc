@@ -46,7 +46,7 @@ addf toggle2nist.0 servo-thread
 
 # External Program Pause/Resume and Run/Step Buttons
 # Pause/Resume Section
-net pause-resume-btn and2.0.in0 and2.1.in0 <= hm2_7i96s.0.gpio.001.in_not
+#net pause-resume-btn and2.0.in0 and2.1.in0 <= hm2_7i96s.0.gpio.001.in_not
 net pause-on toggle2nist.0.is-on and2.0.in1 and2.3.in1 <= halui.program.is-paused
 net run-on and2.1.in1 <= halui.program.is-running
 net pause-sig or2.0.in0 <= and2.0.out
@@ -57,7 +57,7 @@ net toggleon halui.program.pause <= toggle2nist.0.on
 net toggleoff halui.program.resume <= toggle2nist.0.off
 
 # Run/Step Section
-net run-step-btn and2.2.in0 and2.3.in0 <= hm2_7i96s.0.gpio.002.in_not
+#net run-step-btn and2.2.in0 and2.3.in0 <= hm2_7i96s.0.gpio.002.in_not
 net idle-on and2.2.in1 <= halui.program.is-idle
 # net pause.on and 2.3.in1 <= halui.program.is-paused
 # and2.3.in1 was added in the net pause-on statement in Pause/Resume Section

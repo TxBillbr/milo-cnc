@@ -11,11 +11,10 @@ setp    [HMOT](CARD0).pwmgen.pwm_frequency 20000
 setp    [HMOT](CARD0).pwmgen.pdm_frequency 6000000
 setp    [HMOT](CARD0).watchdog.timeout_ns 5000000
 loadrt pid names=pid.x,pid.y,pid.z,pid.s
-loadrt toggle count=1
+# loadrt toggle count=1
 loadrt estop_latch
 loadrt debounce cfg=5
 
-addf toggle.0                   servo-thread
 addf estop-latch.0              servo-thread
 addf [HMOT](CARD0).read         servo-thread
 addf motion-command-handler     servo-thread
@@ -103,9 +102,9 @@ setp [HMOT](CARD0).gpio.021.is_output true
 net vfd-s1  =>     [HMOT](CARD0).gpio.021.out
 
 # --- LIGHTS ---
-net light-button toggle.0.in <=  [HMOT](CARD0).gpio.032.in
-setp [HMOT](CARD0).gpio.022.is_output true
-net lights toggle.0.out [HMOT](CARD0).gpio.022.out   
+# net light-button toggle.0.in <=  [HMOT](CARD0).gpio.032.in
+# setp [HMOT](CARD0).gpio.022.is_output true
+# net lights toggle.0.out [HMOT](CARD0).gpio.022.out   
 
 # --- VFD_S2 ---
 setp [HMOT](CARD0).gpio.023.is_output true
@@ -133,7 +132,7 @@ net resetestop iocontrol.0.user-request-enable estop-latch.0.reset
 
 # ---setup home / limit switch signals---
 
-net x-home-sw     <=  [HMOT](CARD0).gpio.013.in =>  joint.0.home-sw-in joint.0.neg-lim-sw-in
+net x-home-sw     <=  [HMOT](CARD0).gpio.013.in =>  joint.0.home-sw-in joint.0.pos-lim-sw-in
 net y-home-sw     <=  [HMOT](CARD0).gpio.014.in =>  joint.1.home-sw-in joint.1.pos-lim-sw-in
 net z-home-sw     <=  [HMOT](CARD0).gpio.015.in =>  joint.2.home-sw-in joint.2.pos-lim-sw-in
 
@@ -359,8 +358,7 @@ net coolant-mist      <=  iocontrol.0.coolant-mist
 net coolant-flood     <=  iocontrol.0.coolant-flood
 
 # --- PROBE-IN ---
-net probe  <= [HMOT](CARD0).gpio.016.in => debounce.0.4.in
-# net probe  => motion.probe-input probe-in
+net motion-probe-in  <= [HMOT](CARD0).gpio.016.in => debounce.0.4.in
 
 #  ---motion control signals---
 

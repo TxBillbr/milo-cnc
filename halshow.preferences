@@ -1,6 +1,6 @@
 # Halshow settings
 # This file is generated automatically.
-wm geometry . 1920x962+0+31
+wm geometry . 1920x962+9+38
 placeFrames 0.29988399071925753
 set ::ratio 0.29988399071925753
 set ::old_w_leftf 517
@@ -42,6 +42,8 @@ set ::watchlist {
     sig+x-home-sw
     sig+y-home-sw
     sig+z-home-sw
+    pin+motion.probe-input
+    pin+qtdragon.led-probe
 }
 set ::workmode watchhal
 set ::watchInterval 100
