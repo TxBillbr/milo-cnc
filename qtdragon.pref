@@ -2,7 +2,7 @@
 AboutDialog-geometry = 590 497 300 150
 LncMessage-geometry = 994 785 280 118
 ToolChangeDialog-geometry = default
-CalculatorDialog-geometry = 590 497 472 354
+CalculatorDialog-geometry = 590 497 472 376
 basicProbeHelpDialog-geometry = 660 240 600 600
 
 [DIALOG_OPTIONS]

@@ -37,7 +37,6 @@ set ::watchlist {
     pin+hm2_5i25.0.gpio.031.in
     pin+hm2_5i25.0.gpio.032.in
     pin+hm2_5i25.0.gpio.033.in
-    sig+probe
     sig+coolant-spindle
     sig+x-home-sw
     sig+y-home-sw
@@ -45,7 +44,7 @@ set ::watchlist {
     pin+motion.probe-input
     pin+qtdragon.led-probe
 }
-set ::workmode watchhal
+set ::workmode showhal
 set ::watchInterval 100
 set ::col1_width 100
 set ::ffmts 
