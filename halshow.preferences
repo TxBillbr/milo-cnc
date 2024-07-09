@@ -43,6 +43,10 @@ set ::watchlist {
     sig+z-home-sw
     pin+motion.probe-input
     pin+qtdragon.led-probe
+    pin+mb2hal.vfd-freq.motor-freq.int
+    pin+mb2hal.spndl-speed.motor-speed.int
+    pin+mb2hal.spindle_speed.target_speed.int
+    pin+mb2hal.spindle_set.target_state.int
 }
 set ::workmode showhal
 set ::watchInterval 100
