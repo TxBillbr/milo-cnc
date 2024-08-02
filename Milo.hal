@@ -123,10 +123,10 @@ net vfd-s4  =>     [HMOT](CARD0).gpio.026.out
 
 
 # --- ESTOP-EXT ---
-net estop-ext     <=  [HMOT](CARD0).gpio.003.in_not
+# net estop-ext     <=  [HMOT](CARD0).gpio.003.in_not
 # --- ESTOP-OUT ---
 net outok estop-latch.0.ok-out iocontrol.0.emc-enable-in
-net faultin estop-latch.0.fault-in hm2_5i25.0.gpio.003.in
+net faultin estop-latch.0.fault-in hm2_5i25.0.gpio.033.in_not
 net ok-in iocontrol.0.user-enable-out estop-latch.0.ok-in
 net resetestop iocontrol.0.user-request-enable estop-latch.0.reset
 
@@ -319,7 +319,7 @@ net spindle-index-enable      <=>  spindle.0.index-enable
 
 # ---Setup spindle at speed signals---
 
-sets spindle-at-speed true
+# sets spindle-at-speed true
 
 
 #******************************

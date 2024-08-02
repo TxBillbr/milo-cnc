@@ -21,8 +21,8 @@ RunFromLineDialog_play_sound = True
 RunFromLineDialog_sound_type = READY
 
 [BOOK_KEEPING]
-last_loaded_directory = /tmp/emcflt-8mm6fk5t.d
-last_loaded_file = /tmp/emcflt-8mm6fk5t.d/star.png
+last_loaded_directory = /tmp/emcBCD-l0p74bcp.d
+last_loaded_file = /tmp/emcBCD-l0p74bcp.d/face.ngc
 style_QSS_Path = /usr/share/qtvcp/screens/qtdragon_hd/qtdragon_hd.qss
 RecentPath_0 = /home/cnc/linuxcnc/nc_files/examples/gcmc_lib/star.png
 
@@ -124,7 +124,7 @@ Back_Belt_enabled = 6
 
 [PROBE OPTIONS]
 Probe tool = 0
-Probe diameter = 4
+Probe diameter = 2
 Probe rapid = 10
 Probe feed = 10
 Probe search = 10
