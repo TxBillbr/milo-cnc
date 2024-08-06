@@ -3,9 +3,9 @@
 # If you wish to see debug messages insert --debug flag
 # loadusr -W vfdmod --debug my-config-file.ini
 
-loadusr -W vfdmod EV200.ini
+loadusr -W vfdmod EV200.ini --debug
 
-net spindle-speed-cmd => vfdmod.spindle.rpm-in
+net spindle-vel-cmd-rpm-abs => vfdmod.spindle.rpm-in
 net spindle-at-speed <= vfdmod.spindle.at-speed
 net spindle-cw => vfdmod.control.run-forward
 net spindle-ccw => vfdmod.control.run-reverse

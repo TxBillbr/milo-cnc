@@ -285,22 +285,22 @@ net z-enable     => [HMOT](CARD0).stepgen.02.enable
 #  SPINDLE
 #*******************
 
-setp   pid.s.Pgain     [SPINDLE_0]P
-setp   pid.s.Igain     [SPINDLE_0]I
-setp   pid.s.Dgain     [SPINDLE_0]D
-setp   pid.s.bias      [SPINDLE_0]BIAS
-setp   pid.s.FF0       [SPINDLE_0]FF0
-setp   pid.s.FF1       [SPINDLE_0]FF1
-setp   pid.s.FF2       [SPINDLE_0]FF2
-setp   pid.s.deadband  [SPINDLE_0]DEADBAND
-setp   pid.s.maxoutput [SPINDLE_0]MAX_OUTPUT
-setp   pid.s.error-previous-target true
+# setp   pid.s.Pgain     [SPINDLE_0]P
+# setp   pid.s.Igain     [SPINDLE_0]I
+# setp   pid.s.Dgain     [SPINDLE_0]D
+# setp   pid.s.bias      [SPINDLE_0]BIAS
+# setp   pid.s.FF0       [SPINDLE_0]FF0
+# setp   pid.s.FF1       [SPINDLE_0]FF1
+# setp   pid.s.FF2       [SPINDLE_0]FF2
+# setp   pid.s.deadband  [SPINDLE_0]DEADBAND
+# setp   pid.s.maxoutput [SPINDLE_0]MAX_OUTPUT
+# setp   pid.s.error-previous-target true
 
-net spindle-index-enable  =>  pid.s.index-enable
-net spindle-enable        =>  pid.s.enable
-net spindle-vel-cmd-rpm-abs     => pid.s.command
-net spindle-vel-fb-rpm-abs      => pid.s.feedback
-net spindle-output        <=  pid.s.output
+# net spindle-index-enable  =>  pid.s.index-enable
+# net spindle-enable        =>  pid.s.enable
+# net spindle-vel-cmd-rpm-abs     => pid.s.command
+# net spindle-vel-fb-rpm-abs      => pid.s.feedback
+# net spindle-output        <=  pid.s.output
 
 # ---setup spindle control signals---
 
@@ -315,11 +315,10 @@ net spindle-brake              <=  spindle.0.brake
 net spindle-revs               =>  spindle.0.revs
 net spindle-at-speed           =>  spindle.0.at-speed
 net spindle-vel-fb-rps         =>  spindle.0.speed-in
-net spindle-index-enable      <=>  spindle.0.index-enable
+# net spindle-index-enable      <=>  spindle.0.index-enable
 
 # ---Setup spindle at speed signals---
-
-# sets spindle-at-speed true
+# sets spindle-brake false
 
 
 #******************************

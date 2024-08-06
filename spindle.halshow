@@ -1,4 +1,4 @@
-# halshow watchlist created Mon Aug 05 12:08:48 PDT 2024
+# halshow watchlist created Sat Aug 03 12:15:12 PDT 2024
 
 pin+spindle.0.amp-fault-in
 pin+spindle.0.at-speed
@@ -38,12 +38,3 @@ sig+spindle-cw
 sig+spindle-ccw
 sig+spindle-brake
 sig+spindle-at-speed
-pin+vfdmod.parameters.running-frequency
-pin+vfdmod.parameters.run-spd
-pin+vfdmod.parameters.run-fbk
-pin+vfdmod.parameters.reference-frequency
-pin+vfdmod.parameters.motor-speed
-pin+vfdmod.parameters.feedback-speed
-pin+vfdmod.parameters.bus-voltage
-pin+vfdmod.spindle.rpm-in
-pin+vfdmod.spindle.rpm-out
