@@ -43,7 +43,7 @@ setp z_level_compensation.method 1
 # Choose command: Forward/Reverse/Stop
 setp runmode.in0 6         # Dec. stop
 setp runmode.in1 2         # Reverse
-setp runmode.in2 7         # reset
+setp runmode.in2 6         # reset
 setp runmode.in3 1         # Forward
 #net spindle-on motion.spindle-on => mux4.runmode.sel0
 #net spindle-fwd motion.spindle-forward => mux4.runmode.sel1
@@ -58,18 +58,16 @@ unlinkp spindle.0.speed-out-abs
 net rsi spindle.0.speed-out-abs => rpm_scale.in 
 net rso <= rpm_scale.out => mb2hal.spndl_spin.percent_speed
 
-#net scaled_speed <= rpm_s32.out => mb2hal.spndl_spin.percent_speed 
-
 ##
 # input speed scaling - 400hz = 24000 rpm
 ##
 delsig spindle-vel-fb-rps
-setp fbk_scale.gain 0.6
-
+setp fbk_scale.gain 0.01
 net scaled_freq <= mb2hal.spndl_fbk.running_freq.float => fbk_scale.in
 net scaled_freq => qtdragon.spindle_belts.vfdfrequency
+net spindle-vel-fb-rps <= fbk_scale.out => spindle.0.speed-in
 
-net speed-fbk <= fbk_scale.out => spindle.0.speed-in
+
 net moderr conv-u32-s32.0.in mb2hal.spndl_action.num_errors
 net modserr conv-u32-s32.0.out qtdragon.spindle-modbus-errors
 
@@ -83,7 +81,7 @@ net s_on_time <=  mb2hal.vfd_status.power-on-time.float => qtdragon.spindle_belt
 # qtdragon.spindle-fault
 net spindle-enable => runmode.sel0
 net spindle-cw => runmode.sel1
-net runmode.out => mb2hal.spndl_action.command
+net spcmd <= runmode.out => mb2hal.spndl_action.command
 
 
 ########################################################################
