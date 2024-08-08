@@ -1,18 +1,3 @@
-# halshow watchlist created Tue Jun 25 12:33:18 PDT 2024
+# halshow watchlist created Wed Aug 07 16:39:03 PDT 2024
 
-sig+vfd-s1
-sig+vfd-s2
-sig+vfd-s3
-sig+vfd-s4
-sig+coolant-flood
-pin+hm2_5i25.0.gpio.027.out
-pin+hm2_5i25.0.gpio.022.out
-pin+hm2_5i25.0.gpio.018.out
-pin+hm2_5i25.0.gpio.017.out
-pin+hm2_5i25.0.gpio.013.in
-pin+hm2_5i25.0.gpio.014.in
-pin+hm2_5i25.0.gpio.015.in
-pin+hm2_5i25.0.gpio.000.out
-pin+hm2_5i25.0.gpio.016.in
-pin+hm2_5i25.0.gpio.020.in
-pin+hm2_5i25.0.gpio.032.in
+sig+jog-speed

@@ -1,2 +1,123 @@
 # Include your custom_gvcp HAL commands here
 # This file will not be overwritten when you run PNCconf again
+#loadusr -W vfdmod EV200.ini --debug
+
+
+########################################################################
+# load components
+########################################################################
+
+
+loadusr -W mb2hal config=mb2vfd.ini
+
+loadrt conv_float_s32 names=rpm_s32
+loadrt scale names=rpm_scale,fbk_scale
+loadrt mult2
+loadrt mux4 names=runmode
+loadrt conv_u32_s32
+addf rpm_scale servo-thread
+addf fbk_scale servo-thread
+addf rpm_s32 servo-thread
+addf mult2.0 servo-thread
+addf runmode servo-thread
+loadrt logic names=logic-and personality=0x102
+addf logic-and servo-thread
+addf conv-u32-s32.0 servo-thread
+
+# load a summing component for adding spindle lift and Z compensation
+loadrt scaled_s32_sums
+addf scaled-s32-sums.0 servo-thread
+
+loadusr -Wn z_level_compensation z_level_compensation
+# method parameter must be one of nearest(2), linear(1), cubic (0)
+setp z_level_compensation.fade-height 0.0
+setp z_level_compensation.method 1
+
+########################################################################
+# connect signals
+########################################################################
+
+## 
+# command setup
+##
+# Choose command: Forward/Reverse/Stop
+setp runmode.in0 6         # Dec. stop
+setp runmode.in1 2         # Reverse
+setp runmode.in2 7         # reset
+setp runmode.in3 1         # Forward
+#net spindle-on motion.spindle-on => mux4.runmode.sel0
+#net spindle-fwd motion.spindle-forward => mux4.runmode.sel1
+#net spindle-runmode mux4.runmode.out => spindle-vfd.runmode.command
+
+
+##
+# output speed scaling - 12000 rpm converts to 50% (5000 to vfd)
+##
+setp rpm_scale.gain 0.41666
+unlinkp spindle.0.speed-out-abs
+net rsi spindle.0.speed-out-abs => rpm_scale.in 
+net rso <= rpm_scale.out => mb2hal.spndl_spin.percent_speed
+
+#net scaled_speed <= rpm_s32.out => mb2hal.spndl_spin.percent_speed 
+
+##
+# input speed scaling - 400hz = 24000 rpm
+##
+delsig spindle-vel-fb-rps
+setp fbk_scale.gain 0.6
+
+net scaled_freq <= mb2hal.spndl_fbk.running_freq.float => fbk_scale.in
+net scaled_freq => qtdragon.spindle_belts.vfdfrequency
+
+net speed-fbk <= fbk_scale.out => spindle.0.speed-in
+net moderr conv-u32-s32.0.in mb2hal.spndl_action.num_errors
+net modserr conv-u32-s32.0.out qtdragon.spindle-modbus-errors
+
+net amps <= mb2hal.spndl_fbk.output_current.float => mult2.0.in0
+net scaled_amps <= mult2.0.out => qtdragon.spindle-amps
+net volts mb2hal.spndl_fbk.output_volts.float qtdragon.spindle-volts
+
+net torque <= mb2hal.spndl_fbk.output_torque.float => qtdragon.spindle_belts.motortorque
+net s_on_time <=  mb2hal.vfd_status.power-on-time.float => qtdragon.spindle_belts.spindleontime
+# qtdragon.spindle-modbus-connection
+# qtdragon.spindle-fault
+net spindle-enable => runmode.sel0
+net spindle-cw => runmode.sel1
+net runmode.out => mb2hal.spndl_action.command
+
+
+########################################################################
+#net spindle-speed-limited  =>  spindle.0.speed-out-rps => spindle.0.speed-in
+
+# the unlink pin commands are only used, because they are connected 
+# in core_sim.hal and we use this file to simulate
+unlinkp iocontrol.0.tool-change
+unlinkp iocontrol.0.tool-changed
+unlinkp iocontrol.0.tool-prep-number
+
+
+net eoffset-clear    axis.z.eoffset-clear
+net eoffset-counts   axis.z.eoffset-counts
+setp axis.z.eoffset-scale .001
+net eoffset-total          axis.z.eoffset
+net eoffset-total          qtdragon.eoffset-value
+setp axis.z.eoffset-enable True
+
+## external offsets for spindle pause function
+##################################################
+net eoffset-clear     qtdragon.eoffset-clear
+net eoffset-spindle-count   <= qtdragon.eoffset-spindle-count    
+net spindle-pause     qtdragon.spindle-inhibit spindle.0.inhibit
+
+## Z level compensation
+####################################################
+net eoffset-clr2            z_level_compensation.clear      => logic-and.in-01
+net xpos-cmd                z_level_compensation.x-pos      <= axis.x.pos-cmd
+net ypos-cmd                z_level_compensation.y-pos      <= axis.y.pos-cmd
+net zpos-cmd                z_level_compensation.z-pos      <= axis.z.pos-cmd
+net z_compensation_on       z_level_compensation.enable-in  <= qtdragon.comp-on
+net eoffset-zlevel-count    z_level_compensation.counts     => qtdragon.eoffset-zlevel-count
+
+net eoffset-spindle-count   scaled-s32-sums.0.in0
+net eoffset-zlevel-count    scaled-s32-sums.0.in1
+setp scaled-s32-sums.0.scale0 1000

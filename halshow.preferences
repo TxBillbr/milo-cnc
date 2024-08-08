@@ -26,11 +26,11 @@ set ::watchlist {
     pin+spindle.0.speed-out-abs
     pin+spindle.0.speed-out-rps
     pin+spindle.0.speed-out-rps-abs
+    sig+spindle-revs
     sig+spindle-vel-cmd-rpm
     sig+spindle-vel-cmd-rpm-abs
     sig+spindle-vel-cmd-rps-abs
     sig+spindle-vel-cmd-rps
-    sig+spindle-vel-fb-rps
     sig+spindle-manual-stop
     sig+spindle-manual-cw
     sig+spindle-manual-ccw
@@ -39,15 +39,40 @@ set ::watchlist {
     sig+spindle-ccw
     sig+spindle-brake
     sig+spindle-at-speed
-    pin+vfdmod.parameters.running-frequency
-    pin+vfdmod.parameters.run-spd
-    pin+vfdmod.parameters.run-fbk
-    pin+vfdmod.parameters.reference-frequency
-    pin+vfdmod.parameters.motor-speed
-    pin+vfdmod.parameters.feedback-speed
-    pin+vfdmod.parameters.bus-voltage
-    pin+vfdmod.spindle.rpm-in
-    pin+vfdmod.spindle.rpm-out
+    pin+qtdragon.spindle-amps
+    pin+qtdragon.spindle-fault
+    pin+qtdragon.spindle-inhibit
+    pin+qtdragon.spindle-is-at-speed
+    pin+qtdragon.spindle-modbus-connection
+    pin+qtdragon.spindle-modbus-errors
+    pin+qtdragon.spindle-modbus-errors-u32
+    pin+qtdragon.spindle-volts
+    pin+mb2hal.spndl_action.command
+    pin+mb2hal.spndl_action.num_errors
+    pin+mb2hal.spndl_fbk.bus_volts.float
+    pin+mb2hal.spndl_fbk.bus_volts.int
+    pin+mb2hal.spndl_fbk.freq_ref.float
+    pin+mb2hal.spndl_fbk.freq_ref.int
+    pin+mb2hal.spndl_fbk.num_errors
+    pin+mb2hal.spndl_fbk.output_current.float
+    pin+mb2hal.spndl_fbk.output_current.int
+    pin+mb2hal.spndl_fbk.output_power.float
+    pin+mb2hal.spndl_fbk.output_power.int
+    pin+mb2hal.spndl_fbk.output_torque.float
+    pin+mb2hal.spndl_fbk.output_torque.int
+    pin+mb2hal.spndl_fbk.output_volts.float
+    pin+mb2hal.spndl_fbk.output_volts.int
+    pin+mb2hal.spndl_fbk.running_freq.float
+    pin+mb2hal.spndl_fbk.running_freq.int
+    pin+mb2hal.spndl_spin.num_errors
+    pin+mb2hal.spndl_spin.percent_speed
+    pin+mb2hal.vfd_status.accum-run-time.float
+    pin+mb2hal.vfd_status.accum-run-time.int
+    pin+mb2hal.vfd_status.motor-speed.float
+    pin+mb2hal.vfd_status.motor-speed.int
+    pin+mb2hal.vfd_status.num_errors
+    pin+mb2hal.vfd_status.power-on-time.float
+    pin+mb2hal.vfd_status.power-on-time.int
 }
 set ::workmode watchhal
 set ::watchInterval 100
