@@ -5,76 +5,13 @@ placeFrames 0.29988399071925753
 set ::ratio 0.29988399071925753
 set ::old_w_leftf 517
 set ::watchlist {
-    pin+spindle.0.amp-fault-in
-    pin+spindle.0.at-speed
-    pin+spindle.0.brake
-    pin+spindle.0.forward
-    pin+spindle.0.index-enable
-    pin+spindle.0.inhibit
-    pin+spindle.0.is-oriented
-    pin+spindle.0.locked
-    pin+spindle.0.on
-    pin+spindle.0.orient
-    pin+spindle.0.orient-angle
-    pin+spindle.0.orient-fault
-    pin+spindle.0.orient-mode
-    pin+spindle.0.reverse
-    pin+spindle.0.revs
-    pin+spindle.0.speed-cmd-rps
-    pin+spindle.0.speed-in
-    pin+spindle.0.speed-out
-    pin+spindle.0.speed-out-abs
-    pin+spindle.0.speed-out-rps
-    pin+spindle.0.speed-out-rps-abs
-    sig+spindle-revs
-    sig+spindle-vel-cmd-rpm
-    sig+spindle-vel-cmd-rpm-abs
-    sig+spindle-vel-cmd-rps-abs
-    sig+spindle-vel-cmd-rps
-    sig+spindle-manual-stop
-    sig+spindle-manual-cw
-    sig+spindle-manual-ccw
-    sig+spindle-enable
-    sig+spindle-cw
-    sig+spindle-ccw
-    sig+spindle-brake
-    sig+spindle-at-speed
-    pin+qtdragon.spindle-amps
-    pin+qtdragon.spindle-fault
-    pin+qtdragon.spindle-inhibit
-    pin+qtdragon.spindle-is-at-speed
-    pin+qtdragon.spindle-modbus-connection
-    pin+qtdragon.spindle-modbus-errors
-    pin+qtdragon.spindle-modbus-errors-u32
-    pin+qtdragon.spindle-volts
-    pin+mb2hal.spndl_action.command
-    pin+mb2hal.spndl_action.num_errors
-    pin+mb2hal.spndl_fbk.bus_volts.float
-    pin+mb2hal.spndl_fbk.bus_volts.int
-    pin+mb2hal.spndl_fbk.freq_ref.float
-    pin+mb2hal.spndl_fbk.freq_ref.int
-    pin+mb2hal.spndl_fbk.num_errors
-    pin+mb2hal.spndl_fbk.output_current.float
-    pin+mb2hal.spndl_fbk.output_current.int
-    pin+mb2hal.spndl_fbk.output_power.float
-    pin+mb2hal.spndl_fbk.output_power.int
-    pin+mb2hal.spndl_fbk.output_torque.float
-    pin+mb2hal.spndl_fbk.output_torque.int
-    pin+mb2hal.spndl_fbk.output_volts.float
-    pin+mb2hal.spndl_fbk.output_volts.int
-    pin+mb2hal.spndl_fbk.running_freq.float
-    pin+mb2hal.spndl_fbk.running_freq.int
-    pin+mb2hal.spndl_spin.num_errors
-    pin+mb2hal.spndl_spin.percent_speed
-    pin+mb2hal.vfd_status.accum-run-time.float
-    pin+mb2hal.vfd_status.accum-run-time.int
-    pin+mb2hal.vfd_status.motor-speed.float
-    pin+mb2hal.vfd_status.motor-speed.int
-    pin+mb2hal.vfd_status.num_errors
-    pin+mb2hal.vfd_status.power-on-time.float
-    pin+mb2hal.vfd_status.power-on-time.int
+    pin+motion.probe-input
+    pin+qtdragon.led-probe
+    pin+qtdragon.motion.probe-input
+    sig+motion-probe-in
+    pin+hm2_5i25.0.gpio.016.in_not
 }
-set ::workmode watchhal
+set ::workmode showhal
 set ::watchInterval 100
 set ::col1_width 100
 set ::ffmts 
