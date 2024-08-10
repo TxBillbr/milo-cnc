@@ -5,11 +5,54 @@ placeFrames 0.29988399071925753
 set ::ratio 0.29988399071925753
 set ::old_w_leftf 517
 set ::watchlist {
-    pin+motion.probe-input
-    pin+qtdragon.led-probe
-    pin+qtdragon.motion.probe-input
-    sig+motion-probe-in
+    pin+halui.estop.activate
+    pin+halui.estop.is-activated
+    pin+halui.estop.reset
+    pin+estop-latch.0.fault-in
+    pin+estop-latch.0.fault-out
+    pin+estop-latch.0.ok-in
+    pin+estop-latch.0.ok-out
+    pin+estop-latch.0.reset
+    pin+estop-latch.0.time
+    sig+resetestop
+    pin+hm2_5i25.0.gpio.000.out
+    pin+hm2_5i25.0.gpio.003.in
+    pin+hm2_5i25.0.gpio.003.in_not
+    pin+hm2_5i25.0.gpio.003.out
+    pin+hm2_5i25.0.gpio.007.out
+    pin+hm2_5i25.0.gpio.013.in
+    pin+hm2_5i25.0.gpio.014.in
+    pin+hm2_5i25.0.gpio.015.in
+    pin+hm2_5i25.0.gpio.016.in
     pin+hm2_5i25.0.gpio.016.in_not
+    pin+hm2_5i25.0.gpio.017.out
+    pin+hm2_5i25.0.gpio.018.out
+    pin+hm2_5i25.0.gpio.019.out
+    pin+hm2_5i25.0.gpio.020.in
+    pin+hm2_5i25.0.gpio.021.out
+    pin+hm2_5i25.0.gpio.022.out
+    pin+hm2_5i25.0.gpio.023.out
+    pin+hm2_5i25.0.gpio.025.out
+    pin+hm2_5i25.0.gpio.026.out
+    pin+hm2_5i25.0.gpio.027.out
+    pin+hm2_5i25.0.gpio.028.out
+    pin+hm2_5i25.0.gpio.029.out
+    pin+hm2_5i25.0.gpio.030.in
+    pin+hm2_5i25.0.gpio.031.in
+    pin+hm2_5i25.0.gpio.032.in
+    pin+hm2_5i25.0.gpio.033.in
+    pin+hm2_5i25.0.led.CR01
+    pin+hm2_5i25.0.led.CR02
+    pin+hm2_5i25.0.pwmgen.00.enable
+    pin+hm2_5i25.0.pwmgen.00.value
+    pin+hm2_5i25.0.stepgen.00.enable
+    pin+hm2_5i25.0.stepgen.01.enable
+    pin+hm2_5i25.0.stepgen.02.enable
+    pin+hm2_5i25.0.stepgen.03.enable
+    pin+hm2_5i25.0.stepgen.04.enable
+    pin+hm2_5i25.0.stepgen.05.enable
+    pin+hm2_5i25.0.stepgen.05.position-cmd
+    sig+faultin
 }
 set ::workmode showhal
 set ::watchInterval 100

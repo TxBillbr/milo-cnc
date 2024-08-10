@@ -36,6 +36,7 @@ setp z_level_compensation.method 1
 ########################################################################
 # connect signals
 ########################################################################
+net motion-probe-in => qtdragon.led-probe
 
 ## 
 # command setup
@@ -79,13 +80,14 @@ net torque <= mb2hal.spndl_fbk.output_torque.float => qtdragon.spindle_belts.mot
 net s_on_time <=  mb2hal.vfd_status.power-on-time.float => qtdragon.spindle_belts.spindleontime
 # qtdragon.spindle-modbus-connection
 # qtdragon.spindle-fault
+
+# map cmd to speed parameter for spindle run/stop/...
 net spindle-enable => runmode.sel0
 net spindle-cw => runmode.sel1
 net spcmd <= runmode.out => mb2hal.spndl_action.command
 
 
 ########################################################################
-#net spindle-speed-limited  =>  spindle.0.speed-out-rps => spindle.0.speed-in
 
 # the unlink pin commands are only used, because they are connected 
 # in core_sim.hal and we use this file to simulate

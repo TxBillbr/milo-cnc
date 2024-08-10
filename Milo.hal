@@ -357,7 +357,7 @@ net coolant-mist      <=  iocontrol.0.coolant-mist
 net coolant-flood     <=  iocontrol.0.coolant-flood
 
 # --- PROBE-IN ---
-net motion-probe-in  <= [HMOT](CARD0).gpio.016.in => debounce.0.4.in
+net motion-probe-in  <= [HMOT](CARD0).gpio.016.in_not => debounce.0.4.in
 
 #  ---motion control signals---
 

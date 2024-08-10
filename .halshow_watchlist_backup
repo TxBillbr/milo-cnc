@@ -1,3 +1,7 @@
-# halshow watchlist created Wed Aug 07 16:39:03 PDT 2024
+# halshow watchlist created Sat Aug 10 12:34:48 PDT 2024
 
-sig+jog-speed
+pin+motion.probe-input
+pin+qtdragon.led-probe
+pin+qtdragon.motion.probe-input
+sig+motion-probe-in
+pin+hm2_5i25.0.gpio.016.in_not
