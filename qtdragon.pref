@@ -1,9 +1,9 @@
 [DIALOG_GEOMETRY]
 AboutDialog-geometry = 590 497 300 150
-LncMessage-geometry = 994 785 280 118
+LncMessage-geometry = 994 785 232 154
 ToolChangeDialog-geometry = default
 CalculatorDialog-geometry = 590 497 472 376
-basicProbeHelpDialog-geometry = 660 240 600 600
+basicProbeHelpDialog-geometry = 660 240 871 644
 axisToolButtonDialog_ENTRY = 910 541 300 150
 
 [DIALOG_OPTIONS]
@@ -22,9 +22,9 @@ RunFromLineDialog_play_sound = True
 RunFromLineDialog_sound_type = READY
 
 [BOOK_KEEPING]
-last_loaded_directory = /tmp
-last_loaded_file = /tmp/firstcut.ngc
-style_QSS_Path = /usr/share/qtvcp/screens/qtdragon_hd/qtdragon_hd.qss
+last_loaded_directory = /tmp/emcBCD-2yawjcnw.d
+last_loaded_file = /tmp/emcBCD-2yawjcnw.d/face.ngc
+style_QSS_Path = /home/cnc/linuxcnc/configs/qtvcp/screens/qtdragon_hd/argentium.qss
 RecentPath_0 = /home/cnc/linuxcnc/nc_files/examples/gcmc_lib/star.png
 
 [ORIGINOFFSET_SYSTEM_NAMES]
@@ -98,7 +98,7 @@ Sensor X = 10.0
 Sensor Y = 10.0
 Camera X = 10.0
 Camera Y = 10.0
-Work Height = 20.0
+Work Height = 5.0
 Touch Height = 40.0
 Sensor Height = 40.0
 Search Velocity = 30.0
@@ -106,14 +106,14 @@ Probe Velocity = 10.0
 Max Probe = 10.0
 Retract Distance = 10.0
 Z Safe Travel = 10.0
-Eoffset count = 0
+Eoffset count = 5
 External offsets = False
 Reload program = False
 Reload tool = False
 Use keyboard = False
 Run from line = False
 Use virtual keyboard = False
-Use tool sensor = False
+Use tool sensor = True
 Use camera = False
 Use alpha display mode = False
 Inhibit display mouse selection = True
@@ -130,9 +130,9 @@ Probe rapid = 600
 Probe feed = 60
 Probe search = 150
 Probe max travel = 10
-Probe max z = 2
+Probe max z = 5
 Probe extra depth = 0
-Probe step off = 10
+Probe step off = 5
 Probe xy clearance = 10
 Probe z clearance = 5
 Probe edge width = 10
